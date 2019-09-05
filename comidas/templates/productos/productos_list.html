@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comida Monoku</title>
+</head>
+<body>
+    <h1>Comida Monoku</h1>
+    <h2>Lista de Productos</h2>
+    {% for producto in productos %}
+    <div>
+        <h3> {{ producto }}</h3>
+        <p> Cantidad: {{ producto.cantidad }}  |  Expira: {{ producto.expira_date }} </p>
+    </div>
+    {% endfor %}
+
+</body>
+</html>
