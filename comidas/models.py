@@ -42,3 +42,5 @@ class Pedido(models.Model):
     def guardar_ped(self):
         self.published_date = timezone.now()
         self.save()
+    def __str__(self):
+        return '%s %s' % (self.id_ped,'Pedido')

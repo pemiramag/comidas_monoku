@@ -1,27 +1,22 @@
-<!DOCTYPE html>
+{% load static %}
 <html>
     <head>
         <title>Comidas Monoku</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
-    <body>
         <div class="page-header">
+          
+        </div>
 <body>
     <div class="content container">
         <h1>Comida Monoku</h1>
-        <h2>Lista de Consumos</h2>
+        <h2>Lista de Productos</h2>
         <div class="row">
             <div class="col-md-8">
             {% block content %}
-                {% for pedido in pedidos %}
-                    <div>
-                        <h3> {{ pedido }}</h3>
-                        <p> Quién consume: {{ pedido.first_name }}  |  Producto: {{ pedido.product }} |  Cantidad: {{ pedido.cantidad }}</p>
-
-                    </div>
-                {% endfor %}
             {% endblock %}
             </div>
         </div>
@@ -29,9 +24,10 @@
             {% if user.is_authenticated %}
             <a href="{% url 'pedido_new' %}" class="top-menu">Agregar consumo <span class="glyphicon glyphicon-plus"></span></a>
             {% endif %}
-            <a href="{% url 'productos_list' %}" class="top-menu">Ver productos <span class="glyphicon glyphicon-plus"></span></a>
+            <a href="{% url 'pedidos_list' %}" class="top-menu">Ver consumos <span class="glyphicon glyphicon-plus"></span></a>
         </div>
     </div>
 </body>
 </html>
+
 

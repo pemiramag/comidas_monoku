@@ -1,0 +1,12 @@
+
+{% extends 'productos/base.html' %}
+
+{% block content %}
+	<h4>Agregar producto a consumir</h4>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Guardar</button>
+    </form>
+{% endblock %}
+
+
