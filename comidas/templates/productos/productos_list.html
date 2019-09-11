@@ -1,11 +1,31 @@
-
-{% extends 'productos/base.html' %}
-
-{% block content %}
-    {% for producto in productos %}
-        <div>
-            <h3> {{ producto }}</h3>
-            <p> Cantidad: {{ producto.cantidad }}  |  Expira: {{ producto.expira_date }} </p>
-        </div>
+<!DOCTYPE html>
+<html>
+<head>
+    {% extends 'productos/base.html' %}
+    <title></title>
+</head>
+<body>
+    {% block content %}
+        <h5 align="left">Bienvenido {{ usuario }}</h5>
+        <a href="{% url 'ingresar' %}">Cerrar sesión</a>
+        <hr>
+        <h2>Lista de Productos</h2>
+        {% for producto in productos %}
+            <div>
+                <h4> {{ producto }}</h4>
+                <p> Cantidad: {{ producto.cantidad }}  |  Expira: {{ producto.expira_date }} </p>
+            </div>
     {% endfor %}
-{% endblock %}
+    <div class="row">
+        <a href="{% url 'pedido_new' %}" class="top-menu"> Agregar Consumo <span class="glyphicon glyphicon-plus"> | </span></a>
+        <a href="{% url 'pedidos_list' %}" class="top-menu"> Ver Consumos <span class="glyphicon glyphicon-th-list"> | </span></a>
+        <a href="{% url 'come_part' %}" class="top-menu"> Quién come más? <span class="glyphicon glyphicon-user"> | </span></a>
+        <a href="{% url 'come_prod' %}" class="top-menu"> Producto más consumido <span class="glyphicon glyphicon-certificate"> | </span></a>
+    </div>
+    {% endblock %}
+
+</body>
+</html>
+
+
+

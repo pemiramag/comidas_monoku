@@ -1,0 +1,10 @@
+{% extends 'productos/base.html' %}
+
+{% block content %}
+        <h4><p>Por favor inicia sesión</p></h4>
+        <form id=formulario method="POST" action='' class="post-form">{% csrf_token %}
+            {{ formulario }}
+            <button type="submit" class="save btn btn-default">Ingresar</button>
+        </form>
+        {{ formulario.usuario }}
+{% endblock %}

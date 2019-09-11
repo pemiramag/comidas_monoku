@@ -5,5 +5,5 @@ from django import forms
 class CrearPedidos(forms.ModelForm):
     class Meta:
         model = Pedido
-        fields = ['first_name', 'product' , 'cantidad',]
+        fields = ['participante','product', 'cantidadp']
 
