@@ -78,6 +78,7 @@ def come_part(request):
 
 # Crear vista del miembro del equipo que consume mas
 def come_prod(request):
+    # se muestra los valores de la relacion productos pedido se lo anota y se suma la cantidad de productos consumidos y luego se muestra el que mas se consumio
     producto = Pedido.objects.values('product__name_prod').annotate(sum=Sum('cantidadp')).order_by('-sum').first()
     return render(request, 'pedidos/come_prod.html', {'producto': producto})
 
