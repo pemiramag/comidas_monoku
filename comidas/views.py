@@ -43,7 +43,7 @@ def productos_list(request):
 
 # Crear  vista de lista de pedidos.
 def pedidos_list(request):
-    pedidos = Pedido.objects.order_by('participante')
+    pedidos = Pedido.objects.order_by('id_ped')
     return render(request, 'pedidos/pedidos_list.html', {'pedidos': pedidos})
 
 # Crear vista de crear un pedido.

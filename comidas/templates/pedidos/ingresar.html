@@ -1,10 +1,27 @@
 {% extends 'productos/base.html' %}
 
 {% block content %}
-        <h4><p>Por favor inicia sesión</p></h4>
-        <form id=formulario method="POST" action='' class="post-form">{% csrf_token %}
-            {{ formulario }}
-            <button type="submit" class="save btn btn-default">Ingresar</button>
-        </form>
-        {{ formulario.usuario }}
+<div class="login-form">
+    <h2>Login Comida Monoku</h2>
+    <h4>Por favor inicia sesión</h4>
+    <form id=formulario method="POST" action='' class="post-form">
+        {% csrf_token %}
+        {{ formulario.non_field_errors }}
+        <div class="login-form-group">
+            <label for="id_username">Usuario:</label>
+            <div class="group">
+                <i class="fas fa-user"></i>
+                {{ formulario.username }}
+            </div>
+        </div>
+        <div class="login-form-group">
+            <label for="id_password">Contraseña:</label>
+            <div class="group">
+                <i class="fas fa-unlock"></i>
+                {{ formulario.password }}
+            </div>
+        </div>
+        <button type="submit">Ingresar</button>
+    </form>
+</div>
 {% endblock %}

@@ -1,13 +1,35 @@
-
 {% extends 'productos/base.html' %}
 
+{% block header %}
+<div class="row session">
+    <h3>Bienvenido <i class="fas fa-user"></i></h3>
+    <a href="{% url 'ingresar' %}">Cerrar sesión</a>
+</div>
+{% endblock %}
+
 {% block content %}
-	<h4>Agregar consumo</h4>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Guardar</button>
-        <a href="{% url 'productos_list' %}" class="btn btn-default">Cancelar</a>
+<div class="content-body">
+	<h2>Agregar consumo</h2>
+    <form method="POST" class="post-form">
+    	{% csrf_token %}
+    	<div class="form-group col-md-3">
+            <label for="id_participante">Participante:</label>
+            {{ form.participante }}
+        </div>
+        <div class="form-group col-md-4">
+            <label for="id_product">Producto a consumir:</label>
+            {{ form.product }}
+        </div>
+        <div class="form-group col-md-5">
+            <label for="id_cantidadp">Cantidad a consumir:</label>
+            {{ form.cantidadp }}
+        </div>
+        <div class="fila">
+	        <a href="{% url 'productos_list' %}" class="btn btn-default btn-add">Cancelar</a>
+            <button type="submit" class="btn btn-default btn-add">Guardar</button>
+        </div>
     </form>
+</div>
 {% endblock %}
 
 
